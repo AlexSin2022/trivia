@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+            document.addEventListener('DOMContentLoaded', function(){
+                let correct = document.querySelector('.cor');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedback1').innerHTML = 'Correct!';
+                });
+                let incorrects = document.querySelectorAll('.notcor');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect!';
+                    });
+                }
+
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === 'Christopher') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else{
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect!';
+                    }
+                });
+        });
+
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>When Columbus discovered America?</h3>
+                <!-- TODO: Add multiple choice question here -->
+                <button class="notcor">10.12.1934</button>
+                <button class="notcor">25.09.1005</button>
+                <button class="cor">12.10.1492</button>
+                <button class="notcor">03.04.1564</button>
+                <button class="notcor">16.12.1773</button>
+
+                <p id="feedback1"></p>
+            </div>
+
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Write a name of Columbus</h3>
+                    <input name = "q" type="text">
+                    <button id="check">Check Answer</button>
+
+                    <p id="feedback2"></p>
+                <!-- TODO: Add free response question here Check Answer-->
+            </div>
+        </div>
+    </body>
+</html>
